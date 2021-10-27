@@ -45,8 +45,8 @@ node {
         )
     }
     stage('Etapa 4'){
-        so = ['Linux', 'MacOS','BSD']
-        programas = ['ngingx', 'apache']
+        so = ['Linux','MacOS','BSD']
+        programas = ['ngingx','apache']
         
         for (int i=0;i<so.size();i++) {
             for (int j=0;j<programas.size();j++) {
