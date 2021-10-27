@@ -18,7 +18,7 @@ node {
     try {
         stage('Etapa 0'){
             env.MIVARIABLE='HOLA AMIGO!!!'
-            echo 'Dentro de la Etapa 0 ${MIVARIABLE}'
+            echo "Dentro de la Etapa 0 ${MIVARIABLE}"
         }
         stage('Etapa 1'){
         try {
