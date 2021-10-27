@@ -1,3 +1,19 @@
+// Puedo definir un parametro, donde me de la gana del fichero !!!
+properties (
+    [
+        parameters(
+            [
+                string defaultValue: '1', name: 'CODIGO_SALIDA'    
+            ]    
+        ),
+        pipelineTriggers(
+            [
+                cron("* * * * *")    
+            ]    
+        )
+    ]
+)
+
 node {
     try {
         stage('Etapa 0'){
