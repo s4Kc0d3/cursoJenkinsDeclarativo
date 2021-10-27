@@ -27,4 +27,17 @@ node {
     stage('Etapa 2'){
         echo 'Estoy en la Etapa 2'
     }
+    stage('Etapa 3'){
+        echo "Estoy en la Etapa 3"
+        parallel {
+            "Subetapa 3.1": {
+                echo 'Estoy en la Etapa 3.1'
+                sh 'sleep 10'
+            },
+            "Subetapa 3.2": {
+                echo 'Estoy en la Etapa 3.2'
+                sh 'sleep 10'
+            }
+        }
+    }
 }
