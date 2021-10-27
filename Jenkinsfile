@@ -50,7 +50,7 @@ pipeline {
             //post {}
         }
         stage('Etapa 3'){
-            stages {
+            parallel {
                 stage('Etapa 3.1'){
                     steps {
                         sh 'sleep 10'
@@ -62,6 +62,40 @@ pipeline {
                     }
                 }
             }
+        }
+        stage('Etapa en matriz') {
+            matrix {
+                axes {
+                    axis {
+                        name 'SISTEMA_OPERATIVO'
+                        values 'Linux','Macos','BSD'
+                    }
+                    axis {
+                        name 'PROGRAMA'
+                        values 'nginx','apache'
+                    }
+                }
+                excludes {
+                    exclude {
+                        axis {
+                            name 'SISTEMA_OPERATIVO'
+                            values 'Linux'
+                        }
+                        axis {
+                            name 'PROGRAMA'
+                            values 'apache'
+                        }
+                    }
+                }
+                stages {
+                    stage('Probar el sistema') {
+                        steps {
+                            echo 'Voy a probar mi app sobre ${SISTEMA_OPERATIVO} corriendo en ${PROGRAMA}'
+                        }
+                    }
+                }
+            }
+
         }
     }
     post {
@@ -75,3 +109,4 @@ pipeline {
             echo 'Al acabar si algo ha ido mal'
         }
     }
+}
