@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    
     parameters {
         string defaultValue: '0', name: 'CODIGO_SALIDA'
     }
