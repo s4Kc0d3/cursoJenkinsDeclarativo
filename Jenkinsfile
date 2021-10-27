@@ -75,4 +75,3 @@ pipeline {
             echo 'Al acabar si algo ha ido mal'
         }
     }
-}
