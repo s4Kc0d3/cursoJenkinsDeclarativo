@@ -3,7 +3,7 @@ properties (
     [
         parameters(
             [
-                string defaultValue: '1', name: 'CODIGO_SALIDA'    
+                string(defaultValue: '1', name: 'CODIGO_SALIDA')  
             ]    
         ),
         pipelineTriggers(
