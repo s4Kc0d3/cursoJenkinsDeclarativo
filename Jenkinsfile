@@ -22,6 +22,10 @@ pipeline {
         stage('Etapa 1'){
             steps {
                 echo 'Dentro de la Etapa 1'
+                sh 'hostname'
+                sh 'pwd'
+                sh 'ls -l'
+                sh '-l /''
             }
             post {
                 success {
