@@ -1,14 +1,18 @@
-VERSION_DEL_PIPELINE="2.1"
+VERSION_DEL_PIPELINE="2.2"
 
 PARAMETROS_DE_MI_PIPELINE=[
     // Aqui pongo mis parametros
     booleanParam (defaultValue: true, description: 'Descripción de mi parámetro', name: 'MI_PARAM_BOOLEAN'),
-    string(defaultValue: 'valor por defecto', description: 'Descripción de mi parámetro de texto', name: 'MI_PARAM_TEXTO')
+    string(defaultValue: 'valor por defecto', description: 'Descripción de mi parámetro de texto', name: 'MI_PARAM_TEXTO'),
+    choice(choices: ['Valor1', 'Valor2', 'Valor3'], description: 'Descripción de mi parámetro', name: 'MI_PARAM_LISTA')
+
 
 ]
 
 if (this.params.getOrDefault('VERSION_DEL_PIPELINE',"-1")!=VERSION_DEL_PIPELINE){
-    creoConfiguracion()
+    stage('Configuración del JOB'){
+        creoConfiguracion()
+    }
     return
 }
 
@@ -20,6 +24,16 @@ node {
         echo "Hago más de mis cosas"
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
