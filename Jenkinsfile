@@ -1,14 +1,20 @@
+// Plantilla de PIPELINE.
+
+
+// Al cambiar la versión sólo se recarga la configuración del proyecto... pero no se ejecutarán las tareas.
 VERSION_DEL_PIPELINE="2.2"
 
+// Añadir aquí los parámetros del pipeline
 PARAMETROS_DE_MI_PIPELINE=[
     // Aqui pongo mis parametros
-    booleanParam (defaultValue: true, description: 'Descripción de mi parámetro', name: 'MI_PARAM_BOOLEAN'),
-    string(defaultValue: 'valor por defecto', description: 'Descripción de mi parámetro de texto', name: 'MI_PARAM_TEXTO'),
-    choice(choices: ['Valor1', 'Valor2', 'Valor3'], description: 'Descripción de mi parámetro', name: 'MI_PARAM_LISTA')
+    //booleanParam (defaultValue: true, description: 'Descripción de mi parámetro', name: 'MI_PARAM_BOOLEAN'),
+    //string(defaultValue: 'valor por defecto', description: 'Descripción de mi parámetro de texto', name: 'MI_PARAM_TEXTO'),
+    //choice(choices: ['Valor1', 'Valor2', 'Valor3'], description: 'Descripción de mi parámetro', name: 'MI_PARAM_LISTA')
 
 
 ]
 
+// No tocar estr trozo... es el que hace mágia
 if (this.params.getOrDefault('VERSION_DEL_PIPELINE',"-1")!=VERSION_DEL_PIPELINE){
     stage('Configuración del JOB'){
         creoConfiguracion()
@@ -36,7 +42,7 @@ node {
 
 
 
-
+// Función que crea la configuración. NO TOCAR no sabes lo que estás haciendo.
 def creoConfiguracion(){
     properties(
         [
